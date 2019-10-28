@@ -111,23 +111,23 @@ const businesses = [
 	}
 ];
 
-const outEl = document.querySelector('#output');
-outEl.innerHTML = '<h1>Active Businesses</h1>';
+// const outEl = document.querySelector('#output');
+// outEl.innerHTML = '<h1>Active Businesses</h1>';
 
-businesses.forEach((business) => {
-    let zip = "addressZipCode";
+// businesses.forEach((business) => {
+//     let zip = "addressZipCode";
 
-	outEl.innerHTML += `
-    <h2>${business.companyName}</h2>
-    <section>
-      ${business.addressFullStreet}
-    </section>
-    <section>
-      ${business.addressCity}, ${business["addressStateCode"]} ${business[zip]}
-    </section>
-  `;
-	outEl.innerHTML += '<hr/>';
-});
+// 	outEl.innerHTML += `
+//     <h2>${business.companyName}</h2>
+//     <section>
+//       ${business.addressFullStreet}
+//     </section>
+//     <section>
+//       ${business.addressCity}, ${business["addressStateCode"]} ${business[zip]}
+//     </section>
+//   `;
+// 	outEl.innerHTML += '<hr/>';
+// });
 
 /* Lightning Exercise: Add another section sibling to the current one and 
 use object dot notation to display each company's city. 
@@ -147,8 +147,24 @@ const newYorkBusinesses = businesses.filter((business) => {
 // Lightning Exercise: Use filter() to create another array named manufacturingBusinesses
 // that will contain all businesses in the manufacturing industry. Display those to the DOM.
 
-const manufacturingBusinesses = businesses.filter(business => {
-    let manufacturing = false;
+const manufacturingBusinesses = businesses.filter(({companyIndustry}) => companyIndustry === "Manufacturing")
 
-    if (business.companyIndustry === "manufacturing")
-})
+const outEl = document.querySelector('#output');
+outEl.innerHTML = '<h1>Manufacturing Businesses</h1>';
+
+manufacturingBusinesses.forEach((business) => {
+    let zip = "addressZipCode";
+
+	outEl.innerHTML += `
+    <h2>${business.companyName}</h2>
+    <section>
+      ${business.addressFullStreet}
+    </section>
+    <section>
+      ${business.addressCity}, ${business["addressStateCode"]} ${business[zip]}
+    </section>
+  `;
+	outEl.innerHTML += '<hr/>';
+});
+
+console.log(manufacturingBusinesses)
