@@ -127,17 +127,17 @@ with their company and phone number
 */
 const agents = businesses.map(business => {
     return { 
-        purchasingAgent: business.purchasingAgent, 
-        companyName: business.companyName,
-        phoneWork: business.phoneWork
+        fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`, 
+        company: business.companyName,
+        phoneNumber: business.phoneWork
     }
 })
 
 console.table(agents)
 
 agents.forEach(agent => {
-  outEl.innerHTML += `<h2>${agent.purchasingAgent.nameFirst} ${agent.purchasingAgent.nameLast}</h2>`;
-  outEl.innerHTML += `<p>${agent.companyName}</p>`
-  outEl.innerHTML += `<p>${agent.phoneWork}</p>`
+  outEl.innerHTML += `<h2>${agent.fullName}</h2>`;
+  outEl.innerHTML += `<p>${agent.company}</p>`
+  outEl.innerHTML += `<p>Phone: ${agent.phoneNumber}</p>`
   outEl.innerHTML += "<hr/>";
 });
