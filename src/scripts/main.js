@@ -115,13 +115,15 @@ const outEl = document.querySelector('#output');
 outEl.innerHTML = '<h1>Active Businesses</h1>';
 
 businesses.forEach((business) => {
+    let zip = "addressZipCode";
+
 	outEl.innerHTML += `
     <h2>${business.companyName}</h2>
     <section>
       ${business.addressFullStreet}
     </section>
     <section>
-      ${business.addressCity}, ${business['addressStateCode']} ${business['addressZipCode']}
+      ${business.addressCity}, ${business["addressStateCode"]} ${business[zip]}
     </section>
   `;
 	outEl.innerHTML += '<hr/>';
